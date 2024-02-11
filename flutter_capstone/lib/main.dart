@@ -29,13 +29,40 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-        body: Center(
+        body: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 50.0),
           child: Column(
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Image.asset("assets/Rectangle.jpg"),
               ),
+              const SizedBox(
+                width: double.infinity,
+                child: Text("Cappucino"),
+              ),
+              const SizedBox(
+                width: double.infinity,
+                child: Text("With Chocolate"),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Row(
+                    children: [
+                      Icon(Icons.star_rounded),
+                      Text("4.8"),
+                      Text("(230)"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Image.asset("assets/bean.jpg"),
+                      Image.asset("assets/milk.jpg")
+                    ],
+                  )
+                ],
+              )
             ],
           ),
         ),
