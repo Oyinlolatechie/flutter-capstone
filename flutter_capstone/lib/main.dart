@@ -56,6 +56,10 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: HeroSection(),
           ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10.0),
+            child: DescriptionSection(),
+          ),
         ]),
       ),
     );
@@ -171,6 +175,106 @@ class HeroSection extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class DescriptionSection extends StatelessWidget {
+  const DescriptionSection({super.key});
+
+  final String ProductDescription =
+      'A cappacino is an approximately 150ml (5 oz) breverage, with 25 ml of espresso coffee and 85ml of fresh milk for..';
+
+  final String ProductDescriptionLink = 'Read More';
+  final Color blackcolor = const Color(0xFF2F2D2C);
+  final Color BrownColor = const Color(0xFFC67C4E);
+  final Color GreyColor = const Color(0xff9B9B9B);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Padding(
+          padding: EdgeInsets.only(left: 30.0, bottom: 18.0),
+          child: Text(
+            'Description',
+            style: TextStyle(
+              fontFamily: 'Sora-ExtraBold.ttf',
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 10, bottom: 25.0),
+            child: RichText(
+                text: TextSpan(children: <TextSpan>[
+              TextSpan(
+                  text: ProductDescription,
+                  style: const TextStyle(
+                    fontFamily: 'Sora-Regular.ttf',
+                    color: Color.fromRGBO(155, 155, 155, 1),
+                    fontSize: 19,
+                    height: 1.5,
+                  )),
+              TextSpan(
+                  text: ProductDescriptionLink,
+                  style: const TextStyle(
+                    fontFamily: 'Sora-Medium.ttf',
+                    color: Color(0xFFC67C4E),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ))
+            ]))),
+        const Padding(
+          padding: EdgeInsets.only(left: 30.0, bottom: 10.0),
+          child: Text(
+            'Size',
+            style: TextStyle(
+              fontFamily: 'Sora-ExtraBold.ttf',
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _CappacinoSize('S', blackcolor, Colors.white, GreyColor),
+            const SizedBox(width: 15),
+            _CappacinoSize(
+                'M', BrownColor, BrownColor.withOpacity(0.2), BrownColor),
+            const SizedBox(width: 15),
+            _CappacinoSize('L', blackcolor, Colors.white, GreyColor)
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _CappacinoSize(
+      String text, Color color, Color background, Color border) {
+    return Container(
+      width: 110,
+      height: 52,
+      decoration: BoxDecoration(
+        color: background,
+        border: Border.all(
+          color: border,
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 22,
+            color: color,
+          ),
+        ),
       ),
     );
   }
