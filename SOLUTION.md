@@ -1,7 +1,7 @@
 # Cappuccino App Project Description
 
-![Screenshot](images/screenshot_1.jpg)
-![Screenshot](images/screenshot_2.jpg)
+![Screenshot](images/screenshot_1.png)
+![Screenshot](images/screenshot_2.png)
 
 ## Project Overview
 
