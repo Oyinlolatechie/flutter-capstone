@@ -60,11 +60,17 @@ class Home extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 10.0),
             child: DescriptionSection(),
           ),
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 5.0),
+            child: PaymentSection(),
+          )
         ]),
       ),
     );
   }
 }
+
+// ============HeroSection Class ============
 
 class HeroSection extends StatelessWidget {
   HeroSection({super.key});
@@ -180,6 +186,7 @@ class HeroSection extends StatelessWidget {
   }
 }
 
+// ==================DescriptionSection Class ==========
 class DescriptionSection extends StatelessWidget {
   const DescriptionSection({super.key});
 
@@ -280,4 +287,66 @@ class DescriptionSection extends StatelessWidget {
   }
 }
 
-// 
+// ===============PaymentSection Class ===============
+class PaymentSection extends StatelessWidget {
+  const PaymentSection({super.key});
+  final String Amount = '\$4.53';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding:
+              const EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  const Text(
+                    'Price',
+                    style: TextStyle(
+                      fontFamily: 'Sora-Regular.ttf',
+                      color: Color.fromRGBO(155, 155, 155, 1),
+                      fontSize: 22.0,
+                    ),
+                  ),
+                  Text(
+                    Amount,
+                    style: const TextStyle(
+                      fontFamily: 'Sora-ExtraBold.ttf',
+                      color: Color(0xFFC67C4E),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
+                  )
+                ],
+              ),
+              Container(
+                width: 200,
+                height: 60,
+                decoration: BoxDecoration(
+                    color: const Color(0xFFC67C4E),
+                    borderRadius: BorderRadius.circular(15)),
+                child: const Center(
+                  child: Text(
+                    'Buy Now',
+                    style: TextStyle(
+                        fontFamily: 'Sora-ExtraBold.ttf',
+                        fontSize: 25,
+                        color: Colors.white),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        Container(
+            height: 6,
+            width: MediaQuery.of(context).size.width * 0.5,
+            decoration: const BoxDecoration(color: Colors.grey))
+      ],
+    );
+  }
+}
